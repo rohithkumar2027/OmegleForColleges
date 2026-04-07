@@ -9,16 +9,18 @@
 }
 
 body {
-  font-family: 'Outfit', sans-serif;
-  background-color: #FFF8E7;
-  color: #121212;
-  line-height: 1.5;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: #F8FAFC;
+  color: #1E293B;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  line-height: 1.3;
 }
 
 button,
@@ -28,63 +30,66 @@ select {
   font: inherit;
 }
 
-/* Neo-Brutalist Button Base */
-.btn-brutal {
-  @apply inline-flex items-center justify-center gap-2 border-2 border-border rounded-none px-5 py-3 text-sm font-bold leading-tight transition-all duration-200 sm:text-base;
-  box-shadow: 4px 4px 0px #121212;
-  min-height: 3.25rem;
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-primary text-white rounded-full px-6 py-3 text-sm font-semibold leading-tight transition-all duration-200 hover:bg-primaryhover hover:shadow-soft-lg active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed;
+    min-height: 3rem;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 bg-secondary text-white rounded-full px-6 py-3 text-sm font-semibold leading-tight transition-all duration-200 hover:shadow-soft-lg active:scale-[0.98];
+    min-height: 3rem;
+  }
+
+  .btn-surface {
+    @apply inline-flex items-center justify-center gap-2 bg-surface text-text-primary border border-border rounded-full px-6 py-3 text-sm font-semibold leading-tight transition-all duration-200 hover:border-border-dark hover:shadow-soft active:scale-[0.98];
+    min-height: 3rem;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 text-text-secondary rounded-full px-5 py-2.5 text-sm font-medium leading-tight transition-all duration-200 hover:bg-slate-100 hover:text-text-primary;
+  }
+
+  .btn-mint {
+    @apply btn-surface bg-accent-mint border-none text-text-primary;
+  }
+
+  .btn-lilac {
+    @apply btn-surface bg-accent-lilac border-none text-text-primary;
+  }
+
+  .btn-yellow {
+    @apply btn-surface bg-accent-yellow border-none text-text-primary;
+  }
+
+  .btn-brutal {
+    @apply btn-surface;
+  }
+
+  .card {
+    @apply bg-surface border border-border rounded-2xl p-6 shadow-soft;
+  }
+
+  .card-brutal {
+    @apply card hover:shadow-soft-lg hover:border-border-dark;
+  }
+
+  .card-hover {
+    @apply bg-surface border border-border rounded-2xl p-6 shadow-soft transition-all duration-300 hover:shadow-soft-lg hover:border-border-dark hover:-translate-y-0.5;
+  }
+
+  .input-field {
+    @apply w-full border border-border rounded-xl bg-surface px-4 py-3 text-base outline-none transition-all placeholder:text-text-muted focus:border-primary focus:ring-2 focus:ring-primary/10;
+    min-height: 3rem;
+  }
+
+  .input-brutal {
+    @apply input-field;
+  }
 }
 
-.btn-brutal:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px #121212;
-}
-
-.btn-brutal:active {
-  transform: translate(0, 0);
-  box-shadow: 2px 2px 0px #121212;
-}
-
-.btn-primary {
-  @apply btn-brutal bg-primary text-text-primary;
-}
-
-.btn-secondary {
-  @apply btn-brutal bg-secondary text-white;
-}
-
-.btn-mint {
-  @apply btn-brutal bg-accent-mint text-text-primary;
-}
-
-.btn-lilac {
-  @apply btn-brutal bg-accent-lilac text-text-primary;
-}
-
-.btn-yellow {
-  @apply btn-brutal bg-accent-yellow text-text-primary;
-}
-
-/* Card Base */
-.card-brutal {
-  @apply bg-surface border-2 border-border p-4 rounded-none sm:p-6;
-  box-shadow: 4px 4px 0px #121212;
-}
-
-/* Input Base */
-.input-brutal {
-  @apply w-full border-2 border-border rounded-none bg-surface px-4 py-3 text-base outline-none transition-all sm:py-4 sm:text-lg;
-  min-height: 3.25rem;
-}
-
-.input-brutal:focus {
-  border-color: #2563EB;
-  box-shadow: 4px 4px 0px #2563EB;
-}
-
-/* Animation */
 @keyframes slideUp {
   from {
     opacity: 0;
@@ -93,6 +98,15 @@ select {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
@@ -109,47 +123,48 @@ select {
   animation: slideUp 0.4s ease-out forwards;
 }
 
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
 .animate-pulse-slow {
   animation: pulse 2s ease-in-out infinite;
 }
 
-/* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #FFF8E7;
+  background: #F1F5F9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #121212;
-  border: 2px solid #FFF8E7;
+  background: #CBD5E1;
+  border-radius: 4px;
 }
 
-/* Selection */
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
 ::selection {
-  background: #FF49DB;
-  color: #121212;
+  background: #0D9488;
+  color: white;
+}
+
+@media (max-width: 640px) {
+  .card {
+    @apply p-4 rounded-xl;
+  }
+  
+  .btn-primary, .btn-secondary, .btn-surface {
+    @apply px-5 py-2.5 text-sm;
+  }
 }
 
 @media (hover: none) {
   .btn-brutal:hover {
-    transform: none;
-    box-shadow: 4px 4px 0px #121212;
-  }
-}
-
-@media (max-width: 640px) {
-  .btn-brutal {
-    box-shadow: 3px 3px 0px #121212;
-  }
-
-  .btn-brutal:active {
-    box-shadow: 1px 1px 0px #121212;
-  }
-
-  .card-brutal {
-    box-shadow: 3px 3px 0px #121212;
+    @apply shadow-soft;
   }
 }

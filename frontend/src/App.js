@@ -368,7 +368,7 @@ const LandingPage = () => {
           <button
             data-testid="login-nav-btn"
             onClick={() => navigate('/login')}
-            className="btn-brutal bg-surface w-full sm:w-auto"
+            className="btn-surface w-full sm:w-auto"
           >
             Login
           </button>
@@ -403,7 +403,7 @@ const LandingPage = () => {
               <button
                 data-testid="get-started-btn"
                 onClick={() => navigate('/signup')}
-                className="btn-primary w-full text-base sm:w-auto sm:text-lg"
+                className="btn-primary"
               >
                 Get Started Free
                 <ChevronRight className="inline ml-2" strokeWidth={2.5} />
@@ -423,7 +423,7 @@ const LandingPage = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 + i * 0.1 }}
-                  className={`${feat.color} min-h-[110px] border-2 border-border p-3 shadow-brutal sm:min-h-[124px] sm:p-4`}
+                  className={`${feat.color} min-h-[110px] border border-border p-3 shadow-soft-lg sm:min-h-[124px] sm:p-4`}
                 >
                   <feat.icon className="w-6 h-6 mb-2" strokeWidth={2.5} />
                   <span className="text-sm font-bold sm:text-base">{feat.text}</span>
@@ -465,7 +465,7 @@ const LandingPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 + i * 0.1 }}
-                className={`${item.color} border-2 border-border p-6 shadow-brutal`}
+                className={`${item.color} border border-border p-6 shadow-soft-lg`}
               >
                 <item.icon className="w-10 h-10 mb-4" strokeWidth={2.5} />
                 <h4 className="font-heading text-xl font-bold mb-2">{item.title}</h4>
@@ -518,7 +518,7 @@ const LoginPage = () => {
         animate={{ opacity: 1, y: 0 }}
         className="w-full max-w-md"
       >
-        <div className="card-brutal">
+        <div className="card">
           <h1 className="font-heading text-3xl font-black mb-2">Welcome Back</h1>
           <p className="text-text-secondary mb-8">Sign in with your college email</p>
 
@@ -538,7 +538,7 @@ const LoginPage = () => {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="input-brutal"
+                className="input-field"
                 placeholder="you@college.ac.in"
                 required
               />
@@ -553,7 +553,7 @@ const LoginPage = () => {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="input-brutal"
+                className="input-field"
                 placeholder="••••••••"
                 required
               />
@@ -563,7 +563,7 @@ const LoginPage = () => {
               data-testid="login-submit-btn"
               type="submit"
               disabled={loading}
-              className="btn-primary w-full flex items-center justify-center"
+              className="btn-primary"
             >
               {loading ? <Loader2 className="animate-spin" /> : 'Sign In'}
             </button>
@@ -581,7 +581,7 @@ const LoginPage = () => {
           <button
             data-testid="google-login-btn"
             onClick={handleGoogleLogin}
-            className="btn-brutal bg-surface w-full flex items-center justify-center gap-3"
+            className="btn-surface w-full flex items-center justify-center gap-3"
           >
             <svg className="w-5 h-5" viewBox="0 0 24 24">
               <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
@@ -694,13 +694,13 @@ const SignupPage = () => {
         animate={{ opacity: 1, y: 0 }}
         className="w-full max-w-md"
       >
-        <div className="card-brutal">
+        <div className="card">
           {/* Progress */}
           <div className="flex gap-2 mb-8">
             {[1, 2, 3, 4].map((s) => (
               <div
                 key={s}
-                className={`h-2 flex-1 border-2 border-border ${s <= step ? 'bg-primary' : 'bg-surface'}`}
+                className={`h-2 flex-1 border border-border ${s <= step ? 'bg-primary' : 'bg-surface'}`}
               />
             ))}
           </div>
@@ -731,7 +731,7 @@ const SignupPage = () => {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="input-brutal"
+                    className="input-field"
                     placeholder="you@college.ac.in"
                   />
                   <p className="text-sm text-text-secondary mt-2">
@@ -743,7 +743,7 @@ const SignupPage = () => {
                   data-testid="send-otp-btn"
                   onClick={sendOtp}
                   disabled={loading || !email}
-                  className="btn-primary w-full flex items-center justify-center"
+                  className="btn-primary"
                 >
                   {loading ? <Loader2 className="animate-spin" /> : 'Send OTP'}
                 </button>
@@ -776,7 +776,7 @@ const SignupPage = () => {
                   data-testid="verify-otp-btn"
                   onClick={verifyOtp}
                   disabled={loading || otp.length !== 6}
-                  className="btn-primary w-full flex items-center justify-center"
+                  className="btn-primary"
                 >
                   {loading ? <Loader2 className="animate-spin" /> : 'Verify'}
                 </button>
@@ -810,7 +810,7 @@ const SignupPage = () => {
                       type="text"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      className="input-brutal"
+                      className="input-field"
                       placeholder="Your name"
                     />
                   </div>
@@ -824,7 +824,7 @@ const SignupPage = () => {
                       type="password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      className="input-brutal"
+                      className="input-field"
                       placeholder="Min 6 characters"
                     />
                   </div>
@@ -834,7 +834,7 @@ const SignupPage = () => {
                   data-testid="continue-interests-btn"
                   onClick={() => setStep(4)}
                   disabled={!name || password.length < 6}
-                  className="btn-primary w-full"
+                  className="btn-primary"
                 >
                   Continue
                 </button>
@@ -857,8 +857,8 @@ const SignupPage = () => {
                       key={opt.id}
                       data-testid={`looking-for-${opt.id}`}
                       onClick={() => toggleLookingFor(opt.id)}
-                      className={`p-4 border-2 border-border flex flex-col items-center gap-2 transition-all
-                        ${lookingFor.includes(opt.id) ? 'bg-primary shadow-brutal' : 'bg-surface hover:shadow-brutal'}`}
+                      className={`p-4 border border-border flex flex-col items-center gap-2 transition-all
+                        ${lookingFor.includes(opt.id) ? 'bg-primary shadow-soft-lg' : 'bg-surface hover:shadow-soft-lg'}`}
                     >
                       <opt.icon strokeWidth={2.5} className="w-6 h-6" />
                       <span className="font-bold text-sm">{opt.label}</span>
@@ -876,8 +876,8 @@ const SignupPage = () => {
                         key={interest}
                         data-testid={`interest-${interest.toLowerCase()}`}
                         onClick={() => toggleInterest(interest)}
-                        className={`px-4 py-2 border-2 border-border text-sm font-bold transition-all
-                          ${interests.includes(interest) ? 'bg-secondary text-white shadow-brutal' : 'bg-surface'}`}
+                        className={`px-4 py-2 border border-border text-sm font-bold transition-all
+                          ${interests.includes(interest) ? 'bg-secondary text-white shadow-soft-lg' : 'bg-surface'}`}
                       >
                         {interest}
                       </button>
@@ -889,7 +889,7 @@ const SignupPage = () => {
                   data-testid="complete-signup-btn"
                   onClick={handleRegister}
                   disabled={loading || lookingFor.length === 0}
-                  className="btn-primary w-full flex items-center justify-center"
+                  className="btn-primary"
                 >
                   {loading ? <Loader2 className="animate-spin" /> : 'Complete Signup'}
                 </button>
@@ -1168,7 +1168,7 @@ const Dashboard = () => {
               <button
                 data-testid="logout-btn"
                 onClick={logout}
-                className="btn-brutal bg-surface !min-w-[52px] !px-3 !py-3"
+                className="btn-surface !min-w-[52px] !px-3 !py-3"
                 aria-label="Logout"
               >
                 <LogOut className="w-5 h-5" strokeWidth={2.5} />
@@ -1180,13 +1180,13 @@ const Dashboard = () => {
 
       <div className="max-w-7xl mx-auto p-6">
         {dashboardNotice && (
-          <div className="mb-6 border-2 border-border bg-accent-yellow px-4 py-3 shadow-brutal">
+          <div className="mb-6 border border-border bg-accent-yellow px-4 py-3 shadow-soft-lg">
             <p className="font-bold">{dashboardNotice}</p>
           </div>
         )}
 
         {incomingFriendCall && (
-          <div className="mb-6 border-2 border-border bg-surface px-5 py-5 shadow-brutal">
+          <div className="mb-6 border border-border bg-surface px-5 py-5 shadow-soft-lg">
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
               <div>
                 <p className="text-xs font-bold uppercase tracking-widest text-text-secondary">Incoming Friend Call</p>
@@ -1197,7 +1197,7 @@ const Dashboard = () => {
                 <button onClick={acceptFriendCall} className="btn-primary w-full sm:w-auto">
                   Accept Call
                 </button>
-                <button onClick={declineFriendCall} className="btn-brutal bg-surface w-full sm:w-auto">
+                <button onClick={declineFriendCall} className="btn-surface w-full sm:w-auto">
                   Decline
                 </button>
               </div>
@@ -1206,7 +1206,7 @@ const Dashboard = () => {
         )}
 
         {outgoingFriendCall && (
-          <div className="mb-6 border-2 border-border bg-accent-lilac px-4 py-3 shadow-brutal">
+          <div className="mb-6 border border-border bg-accent-lilac px-4 py-3 shadow-soft-lg">
             <p className="font-bold">
               Calling {outgoingFriendCall.friend.name}...
               <span className="ml-2 text-sm text-text-secondary">
@@ -1223,8 +1223,8 @@ const Dashboard = () => {
               key={tab.id}
               data-testid={`tab-${tab.id}`}
               onClick={() => setActiveTab(tab.id)}
-              className={`flex min-h-[52px] shrink-0 items-center gap-2 whitespace-nowrap border-2 border-border px-4 py-3 text-sm font-bold transition-all sm:px-6 sm:text-base
-                ${activeTab === tab.id ? 'bg-primary shadow-brutal' : 'bg-surface hover:shadow-brutal'}`}
+              className={`flex min-h-[52px] shrink-0 items-center gap-2 whitespace-nowrap border border-border px-4 py-3 text-sm font-bold transition-all sm:px-6 sm:text-base
+                ${activeTab === tab.id ? 'bg-primary shadow-soft-lg' : 'bg-surface hover:shadow-soft-lg'}`}
             >
               <tab.icon className="w-5 h-5" strokeWidth={2.5} />
               {tab.label}
@@ -1419,7 +1419,7 @@ const ConnectTab = () => {
           <button
             data-testid="cancel-matching-btn"
             onClick={cancelMatching}
-            className="btn-brutal bg-surface w-full sm:w-auto"
+            className="btn-surface w-full sm:w-auto"
           >
             Cancel
           </button>
@@ -1441,7 +1441,7 @@ const ConnectTab = () => {
                 data-testid={`connect-${connMode.id}`}
                 onClick={() => startMatching(connMode.id)}
                 whileHover={{ y: -4 }}
-                className={`${connMode.color} flex min-h-[184px] w-full flex-col justify-between border-2 border-border p-5 text-left shadow-brutal transition-all sm:min-h-[220px] sm:p-7`}
+                className={`${connMode.color} flex min-h-[184px] w-full flex-col justify-between border border-border p-5 text-left shadow-soft-lg transition-all sm:min-h-[220px] sm:p-7`}
               >
                 <div>
                   <connMode.icon className="mb-3 h-10 w-10 sm:mb-4 sm:h-12 sm:w-12" strokeWidth={2.5} />
@@ -2385,19 +2385,19 @@ const VideoCall = ({ matchedUser, callId, mode, isInitiator, onEndCall }) => {
       className="relative grid min-h-[calc(100vh-200px)] gap-4 pb-24 xl:grid-cols-[minmax(0,1fr)_380px] xl:pb-0"
     >
       {callError && (
-        <div className="absolute left-4 right-4 top-4 z-30 bg-red-100 border-2 border-red-500 px-4 py-3 text-red-700 shadow-brutal sm:right-auto sm:max-w-md">
+        <div className="absolute left-4 right-4 top-4 z-30 bg-red-100 border-2 border-red-500 px-4 py-3 text-red-700 shadow-soft-lg sm:right-auto sm:max-w-md">
           {callError}
         </div>
       )}
 
       {actionFeedback && (
-        <div className="absolute left-4 right-4 top-20 z-30 bg-accent-mint border-2 border-border px-4 py-3 shadow-brutal sm:left-auto sm:right-4 sm:top-4 sm:w-auto">
+        <div className="absolute left-4 right-4 top-20 z-30 bg-accent-mint border border-border px-4 py-3 shadow-soft-lg sm:left-auto sm:right-4 sm:top-4 sm:w-auto">
           {actionFeedback}
         </div>
       )}
 
       <div className="min-w-0 flex flex-col gap-4">
-        <div className={`relative min-h-[56vh] overflow-hidden border-2 border-border shadow-brutal sm:min-h-[68vh] ${modeColors[mode]}`}>
+        <div className={`relative min-h-[56vh] overflow-hidden border border-border shadow-soft-lg sm:min-h-[68vh] ${modeColors[mode]}`}>
           <video
             ref={remoteVideoRef}
             autoPlay
@@ -2424,21 +2424,21 @@ const VideoCall = ({ matchedUser, callId, mode, isInitiator, onEndCall }) => {
             </div>
           </div>
 
-          <div className="absolute bottom-3 left-3 z-10 flex items-center gap-2 rounded-full border-2 border-border bg-surface/85 px-3 py-2 backdrop-blur-xl sm:bottom-4 sm:left-4">
+          <div className="absolute bottom-3 left-3 z-10 flex items-center gap-2 rounded-full border border-border bg-surface/85 px-3 py-2 backdrop-blur-xl sm:bottom-4 sm:left-4">
             <span className="h-2.5 w-2.5 rounded-full bg-secondary" />
             <span className="text-xs font-bold uppercase tracking-[0.24em]">{modeLabels[mode]}</span>
           </div>
 
           {!remoteVideoReady && (
             <div className="absolute inset-0 flex items-center justify-center bg-black/35 backdrop-blur-[2px]">
-              <div className="max-w-sm border-2 border-border bg-surface/88 px-6 py-5 text-center shadow-brutal">
+              <div className="max-w-sm border border-border bg-surface/88 px-6 py-5 text-center shadow-soft-lg">
                 <p className="font-heading text-xl font-bold mb-2">Getting {matchedUser.name}&apos;s video ready</p>
                 <p className="text-sm text-text-secondary">{callStatus}</p>
               </div>
             </div>
           )}
 
-          <div className="absolute bottom-3 right-3 z-10 w-28 overflow-hidden rounded-[28px] border-2 border-border bg-text-primary shadow-brutal sm:bottom-4 sm:right-4 sm:w-36 lg:w-52">
+          <div className="absolute bottom-3 right-3 z-10 w-28 overflow-hidden rounded-[28px] border border-border bg-text-primary shadow-soft-lg sm:bottom-4 sm:right-4 sm:w-36 lg:w-52">
             <div className="relative aspect-video">
               <video
                 ref={localVideoRef}
@@ -2455,7 +2455,7 @@ const VideoCall = ({ matchedUser, callId, mode, isInitiator, onEndCall }) => {
         </div>
 
         <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_auto]">
-          <div className="border-2 border-border bg-gradient-to-r from-surface/90 via-white/75 to-accent-lilac/35 p-5 shadow-brutal backdrop-blur-xl">
+          <div className="border border-border bg-gradient-to-r from-surface/90 via-white/75 to-accent-lilac/35 p-5 shadow-soft-lg backdrop-blur-xl">
             <div>
               <p className="mb-2 text-xs font-bold uppercase tracking-[0.24em] text-text-secondary">Conversation Momentum</p>
               <h3 className="font-heading text-2xl font-bold">Keep it flowing without dead air.</h3>
@@ -2469,7 +2469,7 @@ const VideoCall = ({ matchedUser, callId, mode, isInitiator, onEndCall }) => {
                   <button
                     key={i}
                     onClick={() => setNewMessage(ib)}
-                    className="rounded-full border-2 border-border bg-accent-lilac/80 px-4 py-2 text-left text-sm font-medium transition-all hover:-translate-y-0.5 hover:shadow-brutal"
+                    className="rounded-full border border-border bg-accent-lilac/80 px-4 py-2 text-left text-sm font-medium transition-all hover:-translate-y-0.5 hover:shadow-soft-lg"
                   >
                     {ib}
                   </button>
@@ -2478,7 +2478,7 @@ const VideoCall = ({ matchedUser, callId, mode, isInitiator, onEndCall }) => {
             )}
           </div>
 
-          <div className="grid grid-cols-4 gap-3 rounded-none border-2 border-border bg-surface/84 px-3 py-3 shadow-brutal backdrop-blur-xl sm:grid-cols-7 sm:px-4 sm:py-4 xl:flex xl:flex-wrap xl:items-center xl:justify-center">
+          <div className="grid grid-cols-4 gap-3 rounded-none border border-border bg-surface/84 px-3 py-3 shadow-soft-lg backdrop-blur-xl sm:grid-cols-7 sm:px-4 sm:py-4 xl:flex xl:flex-wrap xl:items-center xl:justify-center">
             <button
               data-testid="toggle-mute-btn"
               onClick={toggleMute}
@@ -2562,7 +2562,7 @@ const VideoCall = ({ matchedUser, callId, mode, isInitiator, onEndCall }) => {
       {!chatOpen && (
         <button
           onClick={openChatPanel}
-          className="fixed inset-x-4 bottom-4 z-30 border-2 border-border bg-surface/85 px-4 py-3 shadow-brutal backdrop-blur-2xl sm:inset-x-auto sm:right-6 sm:bottom-6 xl:hidden"
+          className="fixed inset-x-4 bottom-4 z-30 border border-border bg-surface/85 px-4 py-3 shadow-soft-lg backdrop-blur-2xl sm:inset-x-auto sm:right-6 sm:bottom-6 xl:hidden"
         >
           <span className="flex items-center gap-2 font-bold">
             <Bell className="w-4 h-4" strokeWidth={2.5} />
@@ -2579,7 +2579,7 @@ const VideoCall = ({ matchedUser, callId, mode, isInitiator, onEndCall }) => {
       <motion.aside
         initial={{ x: 24, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
-        className={`${chatOpen ? 'fixed inset-x-3 top-16 bottom-4 z-20 flex sm:inset-x-4 sm:top-20 sm:bottom-6' : 'hidden'} xl:static xl:inset-auto xl:z-auto xl:flex xl:min-h-0 xl:h-auto flex-col overflow-hidden border-2 border-border bg-gradient-to-b from-surface/88 via-white/76 to-accent-lilac/38 shadow-brutal backdrop-blur-2xl`}
+        className={`${chatOpen ? 'fixed inset-x-3 top-16 bottom-4 z-20 flex sm:inset-x-4 sm:top-20 sm:bottom-6' : 'hidden'} xl:static xl:inset-auto xl:z-auto xl:flex xl:min-h-0 xl:h-auto flex-col overflow-hidden border border-border bg-gradient-to-b from-surface/88 via-white/76 to-accent-lilac/38 shadow-soft-lg backdrop-blur-2xl`}
       >
           <div className="border-b-2 border-border px-5 py-4">
             <div className="flex items-start justify-between gap-3">
@@ -2590,7 +2590,7 @@ const VideoCall = ({ matchedUser, callId, mode, isInitiator, onEndCall }) => {
                   Chat stays obvious here while the call connects, stabilizes, and flows.
                 </p>
               </div>
-              <button onClick={() => setChatOpen(false)} className="btn-brutal bg-surface !min-w-[52px] !px-3 !py-3 xl:hidden" aria-label="Close chat">
+              <button onClick={() => setChatOpen(false)} className="btn-surface !min-w-[52px] !px-3 !py-3 xl:hidden" aria-label="Close chat">
                 <X strokeWidth={2.5} />
               </button>
             </div>
@@ -2602,7 +2602,7 @@ const VideoCall = ({ matchedUser, callId, mode, isInitiator, onEndCall }) => {
                 <button
                   key={index}
                   onClick={() => setNewMessage(ib)}
-                  className="rounded-full border-2 border-border bg-accent-yellow/70 px-3 py-2 text-left text-sm transition-all hover:-translate-y-0.5 hover:shadow-brutal"
+                  className="rounded-full border border-border bg-accent-yellow/70 px-3 py-2 text-left text-sm transition-all hover:-translate-y-0.5 hover:shadow-soft-lg"
                 >
                   {ib}
                 </button>
@@ -2625,7 +2625,7 @@ const VideoCall = ({ matchedUser, callId, mode, isInitiator, onEndCall }) => {
               {messages.map((msg, i) => (
                 <div
                   key={i}
-                  className={`max-w-[84%] rounded-[24px] border-2 border-border px-4 py-3 shadow-sm ${
+                  className={`max-w-[84%] rounded-[24px] border border-border px-4 py-3 shadow-sm ${
                     msg.from === 'me'
                       ? 'ml-auto bg-primary/92 text-text-primary'
                       : 'mr-auto bg-white/68 backdrop-blur-md'
@@ -2659,7 +2659,7 @@ const VideoCall = ({ matchedUser, callId, mode, isInitiator, onEndCall }) => {
         <div className="fixed inset-x-4 bottom-4 z-30 card-brutal bg-surface md:inset-x-auto md:right-4 md:bottom-24 md:w-[24rem]">
           <div className="flex items-center justify-between mb-4">
             <h3 className="font-heading text-lg font-bold">Report User</h3>
-            <button onClick={() => setReportOpen(false)} className="btn-brutal bg-surface !min-w-[48px] !px-3 !py-3" aria-label="Close report dialog">
+            <button onClick={() => setReportOpen(false)} className="btn-surface !min-w-[48px] !px-3 !py-3" aria-label="Close report dialog">
               <X strokeWidth={2.5} />
             </button>
           </div>
@@ -2669,7 +2669,7 @@ const VideoCall = ({ matchedUser, callId, mode, isInitiator, onEndCall }) => {
               <button
                 key={option.id}
                 onClick={() => setReportReason(option.id)}
-                className={`p-3 border-2 border-border text-sm font-bold text-left ${
+                className={`p-3 border border-border text-sm font-bold text-left ${
                   reportReason === option.id ? 'bg-primary' : 'bg-background'
                 }`}
               >
@@ -2695,7 +2695,7 @@ const VideoCall = ({ matchedUser, callId, mode, isInitiator, onEndCall }) => {
             </button>
             <button
               onClick={() => setReportOpen(false)}
-              className="btn-brutal bg-surface"
+              className="btn-surface"
             >
               Cancel
             </button>
@@ -2812,9 +2812,9 @@ const FriendsTab = ({ onStartFriendCall, realtimeReady, outgoingFriendCall }) =>
       ) : (
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {friends.map((friend) => (
-            <div key={friend.user_id} className="card-brutal">
+            <div key={friend.user_id} className="card">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-primary border-2 border-border flex items-center justify-center">
+                <div className="w-12 h-12 bg-primary border border-border flex items-center justify-center">
                   <span className="font-heading font-bold text-xl">
                     {friend.name?.[0]?.toUpperCase()}
                   </span>
@@ -2843,7 +2843,7 @@ const FriendsTab = ({ onStartFriendCall, realtimeReady, outgoingFriendCall }) =>
                 </button>
                 <button
                   onClick={() => openFriendChat(friend)}
-                  className="btn-brutal bg-surface w-full justify-center !py-2 text-sm"
+                  className="btn-surface w-full justify-center !py-2 text-sm"
                 >
                   <MessageSquare className="w-4 h-4 inline mr-1" strokeWidth={2.5} /> Chat
                 </button>
@@ -2860,20 +2860,20 @@ const FriendsTab = ({ onStartFriendCall, realtimeReady, outgoingFriendCall }) =>
       )}
 
       {!realtimeReady && (
-        <div className="mt-6 border-2 border-border bg-accent-yellow px-4 py-3 shadow-brutal">
+        <div className="mt-6 border border-border bg-accent-yellow px-4 py-3 shadow-soft-lg">
           Friend calling is still connecting to realtime services. Wait a few seconds and try again.
         </div>
       )}
 
       {chatFriend && (
         <div className="fixed inset-0 z-50 bg-black/35 backdrop-blur-sm p-4 md:p-8">
-          <div className="mx-auto flex h-full max-w-2xl flex-col border-2 border-border bg-surface shadow-brutal">
+          <div className="mx-auto flex h-full max-w-2xl flex-col border border-border bg-surface shadow-soft-lg">
             <div className="flex items-center justify-between border-b-2 border-border px-5 py-4">
               <div>
                 <h3 className="font-heading text-2xl font-black">{chatFriend.name}</h3>
                 <p className="text-sm text-text-secondary">{chatFriend.college}</p>
               </div>
-              <button onClick={() => setChatFriend(null)} className="btn-brutal bg-surface !p-3">
+              <button onClick={() => setChatFriend(null)} className="btn-surface !p-3">
                 <X strokeWidth={2.5} />
               </button>
             </div>
@@ -2901,7 +2901,7 @@ const FriendsTab = ({ onStartFriendCall, realtimeReady, outgoingFriendCall }) =>
                     return (
                       <div
                         key={message.message_id}
-                        className={`max-w-[80%] border-2 border-border px-4 py-3 shadow-sm ${
+                        className={`max-w-[80%] border border-border px-4 py-3 shadow-sm ${
                           isMine ? 'ml-auto bg-primary/90' : 'bg-white/75'
                         }`}
                       >
@@ -2999,7 +2999,7 @@ const HistoryTab = () => {
           {history.map((call) => (
             <div key={call.call_id} className="card-brutal flex items-center justify-between">
               <div className="flex items-center gap-4">
-                <div className={`w-12 h-12 ${modeLabels[call.mode]?.color || 'bg-surface'} border-2 border-border flex items-center justify-center`}>
+                <div className={`w-12 h-12 ${modeLabels[call.mode]?.color || 'bg-surface'} border border-border flex items-center justify-center`}>
                   <Phone strokeWidth={2.5} />
                 </div>
                 <div>
@@ -3134,7 +3134,7 @@ const ProfileTab = () => {
       )}
 
       <div className="grid lg:grid-cols-2 gap-6">
-        <div className="card-brutal">
+        <div className="card">
           <h3 className="font-heading text-xl font-bold mb-4">Basic Info</h3>
 
           <div className="space-y-4">
@@ -3145,7 +3145,7 @@ const ProfileTab = () => {
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="input-brutal"
+                className="input-field"
               />
             </div>
 
@@ -3183,7 +3183,7 @@ const ProfileTab = () => {
         </div>
 
         <div className="space-y-6">
-          <div className="card-brutal">
+          <div className="card">
             <h3 className="font-heading text-xl font-bold mb-4">Looking For</h3>
             <div className="grid grid-cols-2 gap-3">
               {lookingForOptions.map((opt) => (
@@ -3191,8 +3191,8 @@ const ProfileTab = () => {
                   key={opt.id}
                   data-testid={`profile-looking-${opt.id}`}
                   onClick={() => toggleLookingFor(opt.id)}
-                  className={`p-4 border-2 border-border flex items-center gap-3 transition-all
-                    ${lookingFor.includes(opt.id) ? 'bg-primary shadow-brutal' : 'bg-surface hover:shadow-brutal'}`}
+                  className={`p-4 border border-border flex items-center gap-3 transition-all
+                    ${lookingFor.includes(opt.id) ? 'bg-primary shadow-soft-lg' : 'bg-surface hover:shadow-soft-lg'}`}
                 >
                   <opt.icon strokeWidth={2.5} className="w-5 h-5" />
                   <span className="font-bold text-sm">{opt.label}</span>
@@ -3201,7 +3201,7 @@ const ProfileTab = () => {
             </div>
           </div>
 
-          <div className="card-brutal">
+          <div className="card">
             <h3 className="font-heading text-xl font-bold mb-4">Interests</h3>
             <div className="flex flex-wrap gap-2">
               {interestOptions.map((interest) => (
@@ -3209,8 +3209,8 @@ const ProfileTab = () => {
                   key={interest}
                   data-testid={`profile-interest-${interest.toLowerCase()}`}
                   onClick={() => toggleInterest(interest)}
-                  className={`px-4 py-2 border-2 border-border text-sm font-bold transition-all
-                    ${interests.includes(interest) ? 'bg-secondary text-white shadow-brutal' : 'bg-surface'}`}
+                  className={`px-4 py-2 border border-border text-sm font-bold transition-all
+                    ${interests.includes(interest) ? 'bg-secondary text-white shadow-soft-lg' : 'bg-surface'}`}
                 >
                   {interest}
                 </button>
@@ -3218,7 +3218,7 @@ const ProfileTab = () => {
             </div>
           </div>
 
-          <div className="card-brutal">
+          <div className="card">
             <div className="flex items-center gap-3 mb-4">
               <ShieldAlert className="w-6 h-6" strokeWidth={2.5} />
               <h3 className="font-heading text-xl font-bold">Safety</h3>
@@ -3239,7 +3239,7 @@ const ProfileTab = () => {
             ) : (
               <div className="space-y-3">
                 {blockedUsers.map((blockedUser) => (
-                  <div key={blockedUser.user_id} className="border-2 border-border p-3 bg-background">
+                  <div key={blockedUser.user_id} className="border border-border p-3 bg-background">
                     <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
                       <div>
                         <p className="font-bold">{blockedUser.name}</p>
@@ -3248,7 +3248,7 @@ const ProfileTab = () => {
                       <button
                         onClick={() => unblockUser(blockedUser.user_id)}
                         disabled={unblockingUserId === blockedUser.user_id}
-                        className="btn-brutal bg-surface w-full justify-center !py-2 sm:w-auto"
+                        className="btn-surface w-full justify-center !py-2 sm:w-auto"
                       >
                         {unblockingUserId === blockedUser.user_id ? 'Removing...' : 'Unblock'}
                       </button>
